@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>BedCraftMC Fanpage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            color-scheme: light dark;
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: #102a43;
+            background: #f4f7fb;
+            line-height: 1.6;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: radial-gradient(circle at top, rgba(126, 232, 250, 0.18), transparent 35%),
+                        linear-gradient(180deg, #f4f7fb 0%, #e8edf5 100%);
+            padding: 2rem;
+        }
+        body.dark {
+            color: #e5e9f0;
+            background: radial-gradient(circle at top, rgba(125, 211, 252, 0.18), transparent 35%),
+                        linear-gradient(180deg, #0b1726 0%, #121b2f 100%);
+        }
+        header, footer {
+            text-align: center;
+        }
+        .page {
+            max-width: 960px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1.5rem;
+        }
+        .hero {
+            display: grid;
+            gap: 1rem;
+            padding: 2rem;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.82);
+            box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+            backdrop-filter: blur(12px);
+        }
+        body.dark .hero {
+            background: rgba(10, 18, 34, 0.82);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        }
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: -0.04em;
+        }
+        .hero p {
+            margin: 0;
+            max-width: 70ch;
+            color: #334e68;
+        }
+        body.dark .hero p {
+            color: #cfd8f1;
+        }
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+        .button {
+            border: none;
+            padding: 0.95rem 1.4rem;
+            border-radius: 999px;
+            background: #2cb1ff;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .button.secondary {
+            background: transparent;
+            color: inherit;
+            border: 1px solid rgba(16, 42, 67, 0.18);
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(44, 177, 255, 0.22);
+        }
+        .button.secondary:hover {
+            box-shadow: 0 12px 24px rgba(16, 42, 67, 0.1);
+        }
+        .content {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+        .card {
+            border-radius: 18px;
+            padding: 1.4rem;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 32px rgba(15, 23, 42, 0.06);
+            border: 1px solid rgba(15, 23, 42, 0.06);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        body.dark .card {
+            background: rgba(10, 18, 34, 0.9);
+            border-color: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 32px rgba(0, 0, 0, 0.24);
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(44, 177, 255, 0.42);
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        .card p {
+            margin: 0.75rem 0 0;
+            color: #627d98;
+        }
+        body.dark .card p {
+            color: #adbac7;
+        }
+        .tip-box {
+            padding: 1rem 1.2rem;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #2cb1ff 0%, #1d8fe6 100%);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 18px 40px rgba(44, 177, 255, 0.24);
+        }
+        footer {
+            text-align: center;
+            color: #627d98;
+            font-size: 0.95rem;
+        }
+        body.dark footer {
+            color: #9fb3c8;
+        }
+        img.feature-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+        }
+        @media (max-width: 720px) {
+            body {
+                padding: 1rem;
+            }
+            .hero {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header class="hero">
+            <div>
+                <h1>BedCraftMC Fanpage</h1>
+                <p>Alles, was du über den deutschen Minecraft-Server BedCraftMC wissen musst: IP, Discord, Shop und Community-Links.</p>
+            </div>
+            <div class="button-row">
+                <button class="button" id="themeToggle">Dunkelmodus umschalten</button>
+                <button class="button secondary" id="tipButton">Zeige einen Tipp</button>
+            </div>
+            <div class="tip-box" id="tipBox">Klicke auf "Zeige einen Tipp", um mehr über BedCraftMC zu erfahren.</div>
+        </header>
+
+        <main class="content">
+            <section class="card">
+                <h3>Server-Info</h3>
+                <p>Verbinde dich direkt mit der IP <strong>play.BedCraftMC.eu</strong>. Der Server unterstützt laut der offiziellen Store-Seite die Minecraft-Versionen <strong>1.7.10 bis 1.21.10</strong>.</p>
+                <p>BedCraftMC richtet sich an deutsche Spieler und bietet eine freundliche Community für Survival- und kreative Erlebnisse.</p>
+            </section>
+
+            <section class="grid">
+                <article class="card">
+                    <h3>Discord</h3>
+                    <p>Werde Teil der Community über Discord: <a href="https://discord.bedcraftmc.eu" target="_blank">discord.bedcraftmc.eu</a>. Hier gibt es Support, Events und Server-News.</p>
+                </article>
+                <article class="card">
+                    <h3>Store</h3>
+                    <p>Der offizielle Store steht unter <a href="https://bedcraftmc.craftingstore.net/" target="_blank">bedcraftmc.craftingstore.net</a>. Dort findest du Ränge, Upgrades, SkyPrison-Optionen und mehr.</p>
+                </article>
+                <article class="card">
+                    <h3>Community-Kanäle</h3>
+                    <p>Zusätzlich zur Discord-Community gibt es einen Telegram-Kanal: <strong>t.me/bedcraftmc</strong>. Bleibe über Aktionen und neue Server-Inhalte informiert.</p>
+                </article>
+            </section>
+
+            <section class="card">
+                <h3>Warum BedCraftMC?</h3>
+                <ul>
+                    <li>Einfacher Beitritt mit IP: <strong>play.BedCraftMC.eu</strong></li>
+                    <li>Auto-Version-Support von 1.7.10 bis 1.21.10</li>
+                    <li>Offizieller Store mit Rängen, Spendenoptionen und Extras</li>
+                    <li>Aktive Discord-Community für Fragen und Events</li>
+                    <li>Deutschsprachige Umgebung für angenehmes Spielen</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 BedCraftMC Fanpage</p>
+        </footer>
+    </div>
+
+    <script>
+        const body = document.body;
+        const themeToggle = document.getElementById('themeToggle');
+        const tipButton = document.getElementById('tipButton');
+        const tipBox = document.getElementById('tipBox');
+
+        const tips = [
+            'Server-IP: play.BedCraftMC.eu – verbinde dich direkt über Minecraft Multiplayer.',
+            'BedCraftMC unterstützt Java-Versionen von 1.7.10 bis 1.21.10.',
+            'Im offiziellen Shop findest du Ränge, Upgrade-Pakete und SkyPrison-Features.',
+            'Die Community ist über Discord unter discord.bedcraftmc.eu erreichbar.',
+            'Telegram-Kanal: t.me/bedcraftmc für schnelle News und Updates.'
+        ];
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            themeToggle.textContent = body.classList.contains('dark') ? 'Hellmodus umschalten' : 'Dunkelmodus umschalten';
+        });
+
+        tipButton.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * tips.length);
+            tipBox.textContent = tips[randomIndex];
+        });
+    </script>
+</body>
+</html>
